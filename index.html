@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Undangan Pernikahan</title>
+</head>
+<body>
+    <h1>Selamat Datang di Undangan Pernikahan!</h1>
+    <p>Harap izinkan akses kamera untuk pengalaman terbaik.</p>
+    <button id="accessCamera">Izinkan Akses Kamera</button>
+
+    <script>
+        document.getElementById('accessCamera').addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                console.log("Camera access granted");
+            } catch (error) {
+                console.error("Camera access denied", error);
+            }
+        });
+    </script>
+</body>
+</html>
