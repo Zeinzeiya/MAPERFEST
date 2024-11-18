@@ -7,12 +7,18 @@
     <h1>Selamat Datang di Undangan Pernikahan!</h1>
     <p>Harap izinkan akses kamera untuk pengalaman terbaik.</p>
     <button id="accessCamera">Izinkan Akses Kamera</button>
+    <br><br>
+    <video id="cameraFeed" width="640" height="480" autoplay></video>
 
     <script>
         document.getElementById('accessCamera').addEventListener('click', async () => {
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true });
                 console.log("Camera access granted");
+
+                // Menampilkan stream kamera di elemen video
+                const videoElement = document.getElementById('cameraFeed');
+                videoElement.srcObject = stream;
             } catch (error) {
                 console.error("Camera access denied", error);
             }
